@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zinat Parsa - Artist Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons Script for standalone usage -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+      /* Custom font classes to mix Serif (Headings) and Sans (Body) */
+      .font-serif-custom { font-family: 'Cormorant Garamond', serif; }
+      .font-sans-custom { font-family: 'Inter', sans-serif; }
+    </style>
+    <style media="print">
+      @page {
+        margin: 0;
+        size: A4;
+      }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-color: white !important;
+      }
+      /* Remove browser default headers/footers if possible and ensure clean slate */
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-100 text-slate-800 antialiased selection:bg-teal-100 selection:text-teal-900 font-sans-custom py-8 px-4 sm:px-6 lg:px-8 print:p-0 print:bg-white">
+    
+    <!-- Resume Container -->
+    <div class="bg-white shadow-2xl max-w-[21cm] mx-auto min-h-[29.7cm] relative flex flex-col md:flex-row print:flex-row overflow-hidden print:shadow-none print:max-w-full print:h-auto print:overflow-visible">
+      
+      <!-- Decorative Top Accent for Mobile / Left Accent for Desktop -->
+      <div class="h-4 md:h-auto md:w-3 print:h-auto print:w-3 bg-teal-600 flex-shrink-0"></div>
+
+      <div class="flex-grow p-8 md:p-12 print:p-12 flex flex-col gap-10">
+        
+        <!-- Header Section -->
+        <header class="border-b border-teal-100 pb-8 flex flex-col gap-4">
+          <div class="flex flex-col">
+            <h1 class="text-4xl md:text-5xl font-serif-custom text-slate-900 tracking-tight mb-2">
+              Zinat <span class="text-teal-600 font-light">(Setareh)</span> Parsa
+            </h1>
+            <p class="text-lg text-slate-500 font-sans-custom tracking-wide uppercase text-sm font-medium">
+              Contemporary Painter &middot; Tehran, Iran
+            </p>
+          </div>
+          
+          <div class="flex flex-wrap gap-4 text-sm text-slate-500 font-sans-custom mt-2">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="calendar" class="w-4 h-4 text-teal-600"></i> Born 8 Sept 1963
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-teal-600"></i> Tehran, Iran
+            </span>
+          </div>
+        </header>
+
+        <!-- Main Content Columns -->
+        <div class="flex flex-col md:grid md:grid-cols-12 print:grid print:grid-cols-12 gap-10">
+          
+          <!-- Left Column (Narrower) -->
+          <div class="md:col-span-4 print:col-span-4 flex flex-col gap-10">
+            
+            <!-- Bio Summary -->
+            <section>
+              <h2 class="text-sm font-bold uppercase tracking-widest text-teal-700 mb-4 border-l-2 border-teal-600 pl-3">
+                About
+              </h2>
+              <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                Contemporary painter specializing in Impressionism, Figurative Abstraction, and Conceptual Art. 
+                With a career spanning decades, Zinat has participated in over 155 international exhibitions 
+                across Europe, the Middle East, Russia, North America, and East Asia.
+              </p>
+            </section>
+
+            <!-- Education -->
+            <section>
+              <h2 class="text-sm font-bold uppercase tracking-widest text-teal-700 mb-4 border-l-2 border-teal-600 pl-3">
+                Education
+              </h2>
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h3 class="font-serif-custom text-lg text-slate-800 font-semibold">M.A. in Painting</h3>
+                  <p class="text-teal-600 text-xs font-medium uppercase mb-1">2016 &middot; Islamic Azad University</p>
+                  <p class="text-xs text-slate-500 italic">Research: Persian miniature & symbolism of water/color.</p>
+                </div>
+                <div>
+                  <h3 class="font-serif-custom text-lg text-slate-800 font-semibold">B.A. in Painting</h3>
+                  <p class="text-teal-600 text-xs font-medium uppercase">1993 &middot; Islamic Azad University</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Contact -->
+            <section class="mt-auto">
+               <h2 class="text-sm font-bold uppercase tracking-widest text-teal-700 mb-4 border-l-2 border-teal-600 pl-3">
+                Contact
+              </h2>
+              <ul class="flex flex-col gap-3 text-sm text-slate-600">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="mail" class="w-4 h-4 text-teal-500"></i>
+                  <a href="mailto:contact@zinatparsa.art" class="hover:text-teal-600 transition-colors">contact@zinatparsa.art</a>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="globe" class="w-4 h-4 text-teal-500"></i>
+                  <a href="https://www.zinatparsa.art" target="_blank" rel="noopener noreferrer" class="hover:text-teal-600 transition-colors">www.zinatparsa.art</a>
+                </li>
+                 <li class="flex items-center gap-2">
+                  <i data-lucide="phone" class="w-4 h-4 text-teal-500"></i>
+                  <a href="tel:+989122458916" class="hover:text-teal-600 transition-colors">+98 912 245 8916</a>
+                </li>
+              </ul>
+            </section>
+
+          </div>
+
+          <!-- Right Column (Wider) -->
+          <div class="md:col-span-8 print:col-span-8 flex flex-col gap-10">
+            
+            <!-- Artistic Statement -->
+            <section class="bg-slate-50 print:bg-slate-50 p-6 rounded-r-lg border-l-4 border-teal-200">
+              <blockquote class="font-serif-custom text-xl md:text-2xl italic text-slate-700 leading-relaxed">
+                “My art must speak; otherwise, a camera can capture reality better than a brush. 
+                <span class="text-teal-600 font-medium"> Turquoise</span> is the color of purity 
+                and the spiritual memory of my culture.”
+              </blockquote>
+            </section>
+
+            <!-- Selected Exhibitions -->
+            <section>
+              <h2 class="text-sm font-bold uppercase tracking-widest text-teal-700 mb-6 flex items-center gap-2">
+                <span class="w-2 h-2 bg-teal-600 rounded-full print-color-adjust-exact"></span> Selected Exhibitions
+              </h2>
+              
+              <div class="relative border-l border-slate-200 ml-1 space-y-6">
+                
+                <!-- Item 1 -->
+                <div class="pl-6 relative">
+                     <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full border-2 border-white bg-teal-400 print-color-adjust-exact"></span>
+                     <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-semibold text-slate-800 font-serif-custom text-lg">Katara Qatar International Art Festival</h3>
+                        <span class="text-xs font-mono text-slate-400 bg-slate-100 print:bg-slate-100 px-2 py-0.5 rounded">2019–2024</span>
+                     </div>
+                     <p class="text-sm text-slate-500">Qatar</p>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="pl-6 relative">
+                     <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full border-2 border-white bg-teal-400 print-color-adjust-exact"></span>
+                     <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-semibold text-slate-800 font-serif-custom text-lg">World Art Dubai</h3>
+                        <span class="text-xs font-mono text-slate-400 bg-slate-100 print:bg-slate-100 px-2 py-0.5 rounded">2017–2024</span>
+                     </div>
+                     <p class="text-sm text-slate-500">Dubai, UAE</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="pl-6 relative">
+                     <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full border-2 border-white bg-teal-400 print-color-adjust-exact"></span>
+                     <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-semibold text-slate-800 font-serif-custom text-lg">Padova, Parma, Genoa Art Fairs</h3>
+                        <span class="text-xs font-mono text-slate-400 bg-slate-100 print:bg-slate-100 px-2 py-0.5 rounded">Selected Years</span>
+                     </div>
+                     <p class="text-sm text-slate-500">Italy</p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="pl-6 relative">
+                     <span class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full border-2 border-white bg-teal-400 print-color-adjust-exact"></span>
+                     <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-semibold text-slate-800 font-serif-custom text-lg">National Museum of Iran</h3>
+                        <span class="text-xs font-mono text-slate-400 bg-slate-100 print:bg-slate-100 px-2 py-0.5 rounded">2024</span>
+                     </div>
+                     <p class="text-sm text-slate-500">Tehran</p>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- Awards & Recognition -->
+            <section>
+               <h2 class="text-sm font-bold uppercase tracking-widest text-teal-700 mb-6 flex items-center gap-2">
+                <span class="w-2 h-2 bg-teal-600 rounded-full print-color-adjust-exact"></span> Awards & Honors
+              </h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                   
+                   <div class="border border-slate-100 p-4 rounded hover:border-teal-100 transition-colors bg-white shadow-sm break-inside-avoid">
+                      <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="award" class="w-4 h-4 text-yellow-500"></i>
+                        <span class="text-xs font-bold text-teal-600 uppercase tracking-wide">2021–2024</span>
+                      </div>
+                      <h3 class="font-serif-custom font-semibold text-slate-800 text-lg leading-tight mb-1">5× Qatar Art Oscar</h3>
+                      <p className="text-xs text-slate-400">Excellence in Painting</p>
+                   </div>
+
+                   <div class="border border-slate-100 p-4 rounded hover:border-teal-100 transition-colors bg-white shadow-sm break-inside-avoid">
+                      <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="award" class="w-4 h-4 text-yellow-500"></i>
+                        <span class="text-xs font-bold text-teal-600 uppercase tracking-wide">2024</span>
+                      </div>
+                      <h3 class="font-serif-custom font-semibold text-slate-800 text-lg leading-tight mb-1">Tehran National Peace Award</h3>
+                      <p className="text-xs text-slate-400">Cultural contribution</p>
+                   </div>
+
+                   <div class="border border-slate-100 p-4 rounded hover:border-teal-100 transition-colors bg-white shadow-sm break-inside-avoid">
+                      <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="award" class="w-4 h-4 text-yellow-500"></i>
+                        <span class="text-xs font-bold text-teal-600 uppercase tracking-wide">2019</span>
+                      </div>
+                      <h3 class="font-serif-custom font-semibold text-slate-800 text-lg leading-tight mb-1">Moscow Art Oscar</h3>
+                      <p className="text-xs text-slate-400">International Jury Selection</p>
+                   </div>
+
+                   <div class="border border-slate-100 p-4 rounded hover:border-teal-100 transition-colors bg-white shadow-sm break-inside-avoid">
+                      <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="award" class="w-4 h-4 text-yellow-500"></i>
+                        <span class="text-xs font-bold text-teal-600 uppercase tracking-wide">2019</span>
+                      </div>
+                      <h3 class="font-serif-custom font-semibold text-slate-800 text-lg leading-tight mb-1">Medallion Award</h3>
+                      <p className="text-xs text-slate-400">Padova, Italy</p>
+                   </div>
+
+              </div>
+            </section>
+
+            <!-- Media -->
+            <section>
+              <h2 class="text-sm font-bold uppercase tracking-widest text-teal-700 mb-4 flex items-center gap-2">
+                 <span class="w-2 h-2 bg-teal-600 rounded-full print-color-adjust-exact"></span> Media & Publications
+              </h2>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Zinat’s work has been featured in over 10 international art books. Notable press coverage includes 
+                <span class="italic"> Asr Iran</span>, <span class="italic">Jam-e Jam Online</span>, and <span class="italic">Soroush Cinema</span>. 
+                Her work was academically reviewed by Prof. Paolo Gelsomino in <span class="font-semibold">NoesisArcadi</span> (2024).
+              </p>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-auto pt-6 border-t border-slate-100 flex justify-center">
+          <p class="text-xs text-slate-300 font-sans-custom uppercase tracking-widest">
+            © 2024 Zinat Parsa Studio
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print Hint -->
+    <div class="text-center mt-8 text-slate-400 text-xs print:hidden no-print">
+      <p>Designed for A4 Printing &middot; Use browser print to save as PDF</p>
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
